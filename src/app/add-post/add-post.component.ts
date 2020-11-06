@@ -29,7 +29,15 @@ export class AddPostComponent implements OnInit {
     opts.userId = this.addForm.value.userId;
     opts.title = this.addForm.value.title;
     opts.body = this.addForm.value.body;
-    this.service.add(opts).subscribe();
+    this.service.add(opts).subscribe(
+      data=>{
+        let listpost=JSON.parse(localStorage.getItem("listPost"));
+        listpost.push(data)
+        localStorage.setItem("listPost",JSON.stringify(listpost));
+      }
+    );
+
+   
     this.close();
   }
   close(){

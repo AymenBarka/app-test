@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 export class JSONPlaceholderService {
   list = JSON.parse(localStorage.getItem('listusers')) || [];
   connect = JSON.parse(localStorage.getItem('connect')) || {};
-
-  constructor(private http: HttpClient, private route: Router) { }
+   constructor(private http: HttpClient, private route: Router) { }
 
   register(user) {
     this.list.push(user);
@@ -45,6 +44,11 @@ export class JSONPlaceholderService {
   }
   add(opost:Posts):Observable<any>{
     return this.http.post("https://jsonplaceholder.typicode.com/posts",opost);
+  }
+
+  update(opost:Posts):Observable<any>{
+    console.log(opost)
+   return this.http.put("https://jsonplaceholder.typicode.com/posts/"+opost.id , opost );
   }
 
   loggedIn(){

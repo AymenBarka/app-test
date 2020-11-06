@@ -12,6 +12,7 @@ export class EditPostComponent implements OnInit {
   updateUserForm: FormGroup;
   post: any;
   id: number;
+  body:any;
   constructor(private service: JSONPlaceholderService, private dialogRef: MatDialogRef<EditPostComponent>) { }
 
   ngOnInit(): void {
@@ -19,9 +20,7 @@ export class EditPostComponent implements OnInit {
       title: new FormControl('', [Validators.required]),
       body: new FormControl('', [Validators.required]),
     });
-     this.service.getPostById(this.id).subscribe(data =>{
-       this.post = data;
-     })
+  console.log(this.post)
   }
 
   updatePost() {

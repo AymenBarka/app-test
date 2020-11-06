@@ -10,7 +10,9 @@ import { JSONPlaceholderService } from '../services/jsonplaceholder.service';
 export class NavbarComponent implements OnInit {
 
   connect = false;
-  constructor(private jsonPlaceHolder : JSONPlaceholderService, private router: Router) { }
+  constructor(private jsonPlaceHolder : JSONPlaceholderService, private router: Router) { 
+    console.log("zz")
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('connect'))
