@@ -1,0 +1,26 @@
+<mat-toolbar class='navbar' color='primary'>
+    <div>App-test</div>
+    <div>
+      <a routerLink="/home">
+
+      <span>Home</span>
+      </a>
+      <a routerLink="/about">
+      <span>About</span>
+      </a>
+      <a routerLink="/login">
+
+      <span *ngIf='connect === false'>Login</span>
+    </a>
+
+    <a routerLink="/posts">
+      <span *ngIf='connect === true'>Posts</span>
+    </a>
+
+    <a routerLink="/register">
+      <span *ngIf='connect === false'>Register</span>
+    </a>
+    <span (click)= "logout()" *ngIf='connect === true'>logout</span>
+
+    </div>
+  </mat-toolbar>

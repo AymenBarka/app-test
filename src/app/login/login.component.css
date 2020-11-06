@@ -1,0 +1,37 @@
+
+.example-full-width {
+  left: 200px;
+  margin-top: 10px;
+  width: 100%;
+}
+.mat-button{
+    margin-top: 10px;
+  width: 100%;
+  color: white;
+  height: 40px;
+  background-color: #3F51B5;
+}
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+
+
+.banner_btn {
+  background: #8490ff ;
+  color: #fff; }
+  .banner_btn:hover {
+    background-position: right center;
+    color: rgb(83, 81, 81); }

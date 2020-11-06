@@ -1,0 +1,25 @@
+<div class="card m-3" style="width: 600px;position:relative;left:30%;">
+    <h5 class="card-header">Login</h5>
+<mat-divider></mat-divider>
+    <form [formGroup]="loginForm">
+        <div class="row">
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Username" formControlName="username" required="required">
+                </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                <mat-form-field class="example-full-width">
+                    <input type="password" matInput placeholder="Password" formControlName="password"
+                        [type]="hide ? 'password' : 'text'" required="required">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <button mat-raised-button type="submit" class="banner_btn" (click)="login()">Login</button>
+</div>

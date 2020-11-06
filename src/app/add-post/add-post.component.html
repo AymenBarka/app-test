@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Add Post</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+
+    <mat-form-field [formGroup]="addForm" class="example-full-width">
+        <input matInput placeholder="userId" formControlName="userId">
+
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field [formGroup]="addForm" class="example-full-width">
+        <input matInput placeholder="title" formControlName="title">
+
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field [formGroup]="addForm" class="example-full-width">
+        <input matInput type="text" placeholder="Body" formControlName="body">
+
+
+   </mat-form-field>
+
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions>
+    <div class="m-3">
+        <button mat-raised-button type="submit" class="banner_btn" (click)="add()">Save</button>
+    </div>
+    <div class="m-3">
+        <button mat-raised-button (click)="close()">Close</button>
+    </div>
+</mat-dialog-actions>

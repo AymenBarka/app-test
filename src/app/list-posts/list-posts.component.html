@@ -1,0 +1,51 @@
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+
+                    <h4><i class="fa fa-angle-right"></i> List of Posts</h4>
+                    <button mat-raised-button class="material-icons float-right" (click)=addPost()>Add Post<i
+                            class="material-icons"> add_circle</i>
+                    </button>
+                    <table class="table table-striped table-advance table-hover">
+
+
+                        <thead>
+                            <tr>
+                                <th>UserId</th>
+                                <th>IdPost</th>
+                                <th>Title</th>
+                                <th>Body</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let post of listPosts; let i=index">
+                                <td>{{post.userId}}</td>
+                                <td>{{post.id}}</td>
+                                <td>{{post.title}}</td>
+                                <td>{{post.body}}</td>
+
+                                <td class="td-actions text-right">
+                                    <button mat-raised-button type="button" matTooltip="Edit post"
+                                        [matTooltipPosition]="'above'"
+                                        class="btn btn-danger btn-link btn-sm btn-just-icon" (click)="edit(post.id)">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button mat-raised-button type="button" matTooltip="Remove"
+                                        [matTooltipPosition]="'above'"
+                                        class="btn btn-theme btn-link btn-sm btn-just-icon" (click)="remove(i,post.id)">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
