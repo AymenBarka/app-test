@@ -11,21 +11,19 @@ export class NavbarComponent implements OnInit {
 
   connect = false;
   constructor(private jsonPlaceHolder : JSONPlaceholderService, private router: Router) { 
-    console.log("zz")
+
+    
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('connect'))
-    {
-      this.connect = true;
-    }
-
+ 
+    this.jsonPlaceHolder.isconnect.subscribe(cnx => this.connect = cnx)
+     
   }
-
-  logout() {
+  logout(){
     this.jsonPlaceHolder.logout();
-    this.router.navigateByUrl('/login');
-    this.connect = false;
+   
+    this.jsonPlaceHolder.isconnect.subscribe(cnx => this.connect = cnx)
   }
 
 }

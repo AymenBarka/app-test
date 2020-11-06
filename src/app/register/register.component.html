@@ -1,51 +1,50 @@
 <div class="card m-3" style="width: 600px;position:relative;left:30%;">
-    <h5 class="card-header">Register</h5>
-    <mat-divider></mat-divider>
-            
-            <mat-form-field [formGroup]="registerForm" class="example-full-width">
-              <input matInput placeholder="Username" formControlName="username">
-              <mat-error *ngIf="registerForm.hasError('required', 'username')">
-                  Username is required *
-              </mat-error>
-            </mat-form-field>
+  <h5 class="card-header">Register</h5>
+  <mat-divider></mat-divider>
 
-            <br>
+  <mat-form-field [formGroup]="registerForm" class="example-full-width">
+    <input matInput placeholder="Username" formControlName="username">
+    <mat-error *ngIf="registerForm.hasError('required', 'username')">
+      Username is required *
+    </mat-error>
+  </mat-form-field>
 
-            <mat-form-field [formGroup]="registerForm" class="example-full-width">
-              <input matInput placeholder="Email" formControlName="email">
+  <br>
 
-              <mat-error *ngIf="registerForm.hasError('required', 'email')">
-                  Email is required *
-              </mat-error>
+  <mat-form-field [formGroup]="registerForm" class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
 
-              <mat-error *ngIf="registerForm.hasError('email', 'email')">
-                  Please enter a valid email
-              </mat-error>
+    <mat-error *ngIf="registerForm.hasError('required', 'email')">
+      Email is required *
+    </mat-error>
+
+    <mat-error *ngIf="registerForm.hasError('email', 'email')">
+      Please enter a valid email
+    </mat-error>
 
 
-            </mat-form-field>
+  </mat-form-field>
 
-            <br>
+  <br>
 
-           
 
-            <mat-form-field [formGroup]="registerForm" class="example-full-width">
-              <input matInput type="password" placeholder="Password" formControlName="password">
 
-              <mat-error *ngIf="registerForm.hasError('required','password')">
-                   Password is required *
-              </mat-error>
+  <mat-form-field [formGroup]="registerForm" class="example-full-width">
+    <input matInput type="password" placeholder="Password" formControlName="password">
 
-              <mat-error  *ngIf="registerForm.hasError('minlength', 'password')">
-                  Please enter a valid password
-              </mat-error>
+    <mat-error *ngIf="registerForm.hasError('required','password')">
+      Password is required *
+    </mat-error>
 
-            </mat-form-field>
-            
-          
-            
-           
-            <div class= "m-3">
-                <button mat-raised-button type="submit" class="banner_btn" (click)="register()">Save</button>
-            </div>
-           
+    <mat-error *ngIf="registerForm.hasError('minlength', 'password')">
+      Please enter a valid password
+    </mat-error>
+
+  </mat-form-field>
+
+
+
+
+  <div class="m-3">
+    <button mat-raised-button type="submit" class="banner_btn" (click)="register()">Save</button>
+  </div>

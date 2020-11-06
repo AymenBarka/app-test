@@ -1,16 +1,22 @@
 import { Posts } from './../posts';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class JSONPlaceholderService {
+  @Output() isconnect: EventEmitter<any> = new EventEmitter();
   list = JSON.parse(localStorage.getItem('listusers')) || [];
   connect = JSON.parse(localStorage.getItem('connect')) || {};
-   constructor(private http: HttpClient, private route: Router) { }
+ 
+   constructor(private http: HttpClient, private route: Router) { 
+
+    this.isconnect.emit(false);
+   }
 
   register(user) {
     this.list.push(user);
@@ -23,6 +29,7 @@ export class JSONPlaceholderService {
       if ((user.username === this.list[i].username) && (user.password === this.list[i].password)) {
         this.connect = this.list[i];
         localStorage.setItem('connect', JSON.stringify(this.connect));
+        this.isconnect.emit(true);
         this.route.navigateByUrl('/posts');
       }
     }
@@ -47,7 +54,6 @@ export class JSONPlaceholderService {
   }
 
   update(opost:Posts):Observable<any>{
-    console.log(opost)
    return this.http.put("https://jsonplaceholder.typicode.com/posts/"+opost.id , opost );
   }
 
@@ -56,6 +62,6 @@ export class JSONPlaceholderService {
   }
   logout(){
     localStorage.removeItem('connect');
-    
+    this.isconnect.emit(false);
   }
 }

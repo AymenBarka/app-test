@@ -1,4 +1,3 @@
-import { EditPostComponent } from './edit-post/edit-post.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -15,7 +14,6 @@ const routes: Routes = [
   {path: 'about', component:AboutComponent},
   {path:'home',component:HomeComponent},
   {path:'posts', component:ListPostsComponent,canActivate: [GuardserviceGuard]},
-  {path:'editProfil', component:EditPostComponent},
 ];
 
 @NgModule({

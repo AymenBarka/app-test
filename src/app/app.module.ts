@@ -1,4 +1,5 @@
 import { JSONPlaceholderService } from './services/jsonplaceholder.service';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms'
@@ -21,7 +22,6 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { EditPostComponent } from './edit-post/edit-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 
 
@@ -41,7 +41,6 @@ import { AddPostComponent } from './add-post/add-post.component';
     AboutComponent,
     HomeComponent,
     ListPostsComponent,
-    EditPostComponent,
     AddPostComponent
   ],
   imports: [
@@ -59,11 +58,13 @@ import { AddPostComponent } from './add-post/add-post.component';
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', 
+    }),
     MatButtonModule
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [EditPostComponent,AddPostComponent],
 
   providers: [JSONPlaceholderService],
   bootstrap: [AppComponent]

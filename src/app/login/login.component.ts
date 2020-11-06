@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   msg: String;
   isLoginFailed = false;
   hide: boolean;
+  
   constructor(private service: JSONPlaceholderService) {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
@@ -24,5 +25,6 @@ export class LoginComponent implements OnInit {
   }
 login(){
  this.service.login(this.loginForm.value);
+
 }
 }

@@ -5,7 +5,7 @@
                 <div class="content-panel">
 
                     <h4><i class="fa fa-angle-right"></i> List of Posts</h4>
-                    <button mat-raised-button class="material-icons float-right" (click)=addPost()>Add Post<i
+                    <button mat-raised-button color="warn" class="material-icons float-right" (click)=addPost()>Add Post<i
                             class="material-icons"> add_circle</i>
                     </button>
                     <table class="table table-striped table-advance table-hover">
@@ -28,16 +28,23 @@
                                 <td>{{post.body}}</td>
 
                                 <td class="td-actions text-right">
-                                    <button mat-raised-button type="button" matTooltip="Edit post" data-toggle="modal" data-target="#exampleModal"
-                                        [matTooltipPosition]="'above'"
+                                    <button mat-raised-button type="button" matTooltip="Edit post" data-toggle="modal"
+                                        data-target="#exampleModal" [matTooltipPosition]="'above'"
                                         class="btn btn-danger btn-link btn-sm btn-just-icon" (click)="edit(post.id,i)">
                                         <i class="material-icons">edit</i>
                                     </button>
-                                    <button mat-raised-button type="button" matTooltip="Remove"
-                                        [matTooltipPosition]="'above'"
-                                        class="btn btn-theme btn-link btn-sm btn-just-icon" (click)="remove(i,post.id)">
-                                        <i class="material-icons">close</i>
-                                    </button>
+                                  
+                                    <button
+                                    class="btn btn-outline-secondary"
+                                    mwlConfirmationPopover
+                                    [popoverTitle]="popoverTitle"
+                                    [popoverMessage]="popoverMessage"
+                                    placement="left"
+                                    (confirm)="remove(i,post.id)"
+                                    (cancel)="cancelClicked = true"
+                                  >
+                                  <mat-icon>delete</mat-icon>
+                                  </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -48,50 +55,53 @@
             </div>
         </div>
     </section>
- 
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div>
 
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <mat-form-field appearance="outline" [formGroup]="updateUserForm" >
-                          <mat-label>Title</mat-label>
-                          <input formControlName="title"  value="{{title}}" matInput placeholder="Title" name="title" type="text">
-                          
-                        </mat-form-field>
-                      </div>
-                         
-                      <div class="col-lg-12">
-                       
-                        <mat-form-field appearance="outline" style="width: 100%;" [formGroup]="updateUserForm">
-                          <mat-label>Body</mat-label>
-                          <input matInput placeholder="Body" type="body" name="body" formControlName="body" value="{{body}}">
-             
-                        </mat-form-field>
-                      </div>
-                      
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <mat-form-field appearance="outline" [formGroup]="updateUserForm">
+                                    <mat-label>Title</mat-label>
+                                    <input formControlName="title" value="{{title}}" matInput placeholder="Title"
+                                        name="title" type="text">
+
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-lg-12">
+
+                                <mat-form-field appearance="outline" style="width: 100%;" [formGroup]="updateUserForm">
+                                    <mat-label>Body</mat-label>
+                                    <input matInput placeholder="Body" type="body" name="body" formControlName="body"
+                                        value="{{body}}">
+
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        
+
                     </div>
-                  <!--  <button mat-raised-button color="primary" class="btn-close pull-right" >Close</button>
-                    <button mat-raised-button color="warn" class="btn-theme pull-right" >Update
-                      Profile</button>
-                   -->
-                  
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="updatePost()" data-dismiss="modal">Save
+                        changes</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" (click)="updatePost()" data-dismiss="modal">Save changes</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+   
 </section>

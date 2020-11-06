@@ -20,7 +20,8 @@
     <a routerLink="/register">
       <span *ngIf='connect === false'>Register</span>
     </a>
-    <span (click)= "logout()" *ngIf='connect === true'>logout</span>
-
+    <a routerLink="/login" style="color:white">
+    <span (click)= "logout()"  *ngIf='connect === true'>logout</span>
+  </a>
     </div>
   </mat-toolbar>
